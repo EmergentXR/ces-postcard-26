@@ -310,3 +310,20 @@ body {
   font-size: 11px;
   color: rgba(255,255,255,0.70);
 }
+
+/* Prevent browser auto-link styling / tap-to-map behavior */
+.postcard-no-link {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none !important;
+  cursor: default;
+}
+
+.postcard-no-link a,
+.postcard-no-link a:visited,
+.postcard-no-link a:hover,
+.postcard-no-link a:active {
+  color: inherit;
+  text-decoration: none !important;
+}
