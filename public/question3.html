@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <link rel="icon" href="/favicon-light.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon-dark.ico" media="(prefers-color-scheme: light)">
+  <title>Question 3 • Your Vegas Mode</title>
+
+  <!-- Your custom styles -->
+  <link rel="stylesheet" href="/styles/build.css" />
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Main content (centered card) -->
+  <div class="flex-1 flex items-center justify-center">
+    <div class="container mx-auto px-4">
+      <div
+        class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+      >
+        <div class="p-8">
+
+          <!-- Logo -->
+        <div class="flex justify-center mb-4">
+          <img
+            src="/assets/logo.webp"
+            alt="Emergent Labs"
+            class="h-24 opacity-80"
+          />
+        </div>
+
+          <!-- Step label -->
+          <p class="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2 text-center">
+            Step 3 of 3
+          </p>
+
+          <!-- Question -->
+          <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800">
+              What's your Vegas vibe?
+            </h1>
+            <p class="text-gray-600 mt-2">
+              Pick the vibe that best matches your CES 2026 experience.
+            </p>
+          </div>
+
+          <!-- Options -->
+          <div class="flex flex-col items-center gap-4">
+
+            <!-- Gambling / Party (Sin City) -->
+            <button
+              class="q3-option-btn option-btn w-full flex items-center justify-between gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+              data-value="Neon Night Operator"
+            >
+              <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+                <span class="font-semibold text-gray-800">
+                  Neon Night Operator
+                </span>
+                <span class="text-xs text-gray-500">
+                  Neon nights, high energy, and a little chaos in the best way.
+                </span>
+              </div>
+              <div class="shrink-0">
+                <span class="text-4xl">🎰</span>
+              </div>
+            </button>
+
+            <!-- Hotel (Introvert) -->
+            <button
+              class="q3-option-btn option-btn w-full flex items-center justify-between gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+              data-value="Energy Conservationist"
+            >
+              <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+                <span class="font-semibold text-gray-800">
+                  Energy Conservationist
+                </span>
+                <span class="text-xs text-gray-500">
+                  Recharge mode: quiet corners, room service, and recovery between halls.
+                </span>
+              </div>
+              <div class="shrink-0">
+                <span class="text-4xl">🛌</span>
+              </div>
+            </button>
+
+            <!-- Concerts / Shows (Experiences) -->
+            <button
+              class="q3-option-btn option-btn w-full flex items-center justify-between gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+              data-value="Front Row Thinker"
+            >
+              <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+                <span class="font-semibold text-gray-800">
+                 Front Row Thinker
+                </span>
+                <span class="text-xs text-gray-500">
+                  You’re here for the moments — lights, sound, and stories that stick.
+                </span>
+              </div>
+              <div class="shrink-0">
+                <span class="text-4xl">🎤</span>
+              </div>
+            </button>
+
+            <!-- Nature / Geography -->
+            <button
+              class="q3-option-btn option-btn w-full flex items-center justify-between gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+              data-value="Off-Strip Explorer"
+            >
+              <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+                <span class="font-semibold text-gray-800">
+                  Off-Strip Explorer
+                </span>
+                <span class="text-xs text-gray-500">
+                  Desert air, wide skies, and a reset outside the strip.
+                </span>
+              </div>
+              <div class="shrink-0">
+                <span class="text-4xl">🏜️</span>
+              </div>
+            </button>
+
+          </div>
+
+          <p class="mt-6 text-xs text-gray-500 text-center">
+            This final touch helps shape the style and atmosphere of your postcard.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-4 text-center text-white text-sm pb-6">
+    Created & Powered by
+    <a
+      href="https://www.discoveremergent.com/"
+      target="_blank"
+      class="font-semibold text-secondary underline"
+    >
+      Emergent Labs
+    </a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/question3.js"></script>
+</body>
+</html>

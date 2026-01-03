@@ -1,0 +1,312 @@
+/* styles/main.css */
+
+/* =========================
+   Fonts
+   ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+
+/* =========================
+   Global
+   ========================= */
+:root {
+  /* Match postcard.html rounded-[22px] */
+  --postcard-radius: 22px;
+
+  /* Border thickness (40% thinner than 18px) */
+  --frame-thickness: 11px;
+
+  /* Glass panel tuning */
+  --glass-bg: rgba(0, 0, 0, 0.103);
+  --glass-border: rgba(255, 255, 255, 0.091);
+  --glass-blur: 2px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arimo', sans-serif;
+  background-color: #495681; /* your original page bg */
+}
+
+/* =========================
+   Layout helpers
+   ========================= */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* =========================
+   Option buttons (Q1/Q2/Q3)
+   ========================= */
+.option-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.option-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1),
+    0 2px 4px -1px rgba(99, 102, 241, 0.06);
+  border-color: #10b981;
+}
+
+.option-btn:active {
+  transform: translateY(0);
+}
+
+.option-selected {
+  background-color: rgba(99, 102, 241, 0.08);
+  border-color: #98f1a6 !important;
+}
+
+.option-selected span,
+.option-selected div span {
+  color: #98f1a6;
+}
+
+/* Selected state: subtle scale + stronger shadow */
+.option-btn--active {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 18px -6px rgba(16, 185, 129, 0.35),
+    0 4px 8px -4px rgba(15, 118, 110, 0.35);
+}
+
+/* Tiny check icon transition */
+.option-check {
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.option-check--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Postcard reveal (prevents “image pops in”) */
+[data-postcard-content] {
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.postcard-ready [data-postcard-content] {
+  opacity: 1;
+}
+
+#postcard-loading {
+  transition: opacity 220ms ease;
+}
+
+.postcard-ready #postcard-loading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Postcard container */
+.postcard-frame {
+  position: relative;
+  border-radius: var(--postcard-radius);
+  overflow: hidden;
+}
+
+/* Image layer */
+.postcard-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.postcard-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transform-origin: center;
+  display: block;
+}
+
+/* Content above image */
+.postcard-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Airmail border: stripes only in the frame (center is punched out) */
+.postcard-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  /* Thickness controlled here */
+  padding: var(--frame-thickness);
+  border-radius: inherit;
+  box-sizing: border-box;
+
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(245, 245, 245, 0.24) 0 14px,
+    rgba(145, 150, 158, 0.18) 14px 28px
+  );
+
+  /* Punch out the center so stripes remain only in the border */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  /* Non-webkit fallback (some browsers) */
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* Optional subtle inner stroke */
+.postcard-frame::after {
+  content: "";
+  position: absolute;
+  /* inset: var(--frame-thickness); */
+  z-index: 4;
+  pointer-events: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: calc(var(--postcard-radius) - var(--frame-thickness));
+  box-sizing: border-box;
+}
+
+/* =========================
+   Glass blur readability panel
+   ========================= */
+.postcard-glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* Capture Mode: remove blur (backdrop-filter doesn't export reliably) */
+.capture-mode .postcard-glass {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(0, 0, 0, 0.22) !important; /* readable fallback */
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* =========================
+   Generate page keyword base
+   ========================= */
+.generate-keyword {
+  color: #6366f1; /* indigo */
+  transition: color 300ms ease, text-shadow 300ms ease;
+}
+
+/* Active: vivid emerald + punchy glow */
+.generate-keyword--active {
+  color: #10b981 !important;
+  text-shadow:
+    0 0 10px rgba(16, 185, 129, 0.45),
+    0 0 22px rgba(16, 185, 129, 0.20),
+    0 0 40px rgba(16, 185, 129, 0.05);
+}
+
+/* =========================
+   Screenshot Mode Modal
+   ========================= */
+
+.screenshot-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.screenshot-shell {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.screenshot-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.95);
+  font-size: 28px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screenshot-header {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  color: rgba(255,255,255,0.95);
+}
+
+.screenshot-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.screenshot-subtitle {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.78);
+}
+
+.screenshot-stage {
+  width: min(92vw, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMPORTANT: reduce the zoom so it doesn't crop harshly */
+#screenshot-stage .screenshot-clone {
+  transform: scale(1.04);   /* was 1.12 — this is the “less harsh zoom” */
+  transform-origin: center;
+  width: 100%;
+  max-width: none;
+}
+
+.screenshot-tip {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.70);
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <link rel="icon" href="/favicon-light.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon-dark.ico" media="(prefers-color-scheme: light)">
+  <title>CES Faves Explorer</title>
+
+  <!-- Your custom styles -->
+  <link rel="stylesheet" href="/styles/build.css" />
+</head>
+
+<body class="bg-[#495681] min-h-screen flex flex-col">
+  <!-- Splash / Intro overlay -->
+  <div
+    id="splash"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-[#495681]"
+  >
+    <div class="container mx-auto px-4">
+      <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="p-8 text-center">
+          <!-- Logo -->
+          <div class="flex justify-center mb-4">
+            <img src="/assets/logo.webp" alt="Emergent Labs" class="h-20 opacity-80" />
+          </div>
+
+          <h1 class="text-2xl font-bold text-gray-800">
+            Build your CES 2026 postcard
+          </h1>
+
+          <p class="text-gray-600 mt-3 leading-relaxed">
+            Answer 3 quick questions and we’ll create a generative AI Las Vegas postcard
+            — with your personality baked into the scene.
+          </p>
+
+          <button
+            id="start-btn"
+            class="mt-6 w-full py-3 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition"
+            type="button"
+          >
+            Let’s go →
+          </button>
+
+          <p class="text-xs text-gray-500 mt-4">
+            Takes ~1 minute. No account needed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-1 flex items-center justify-center">
+    <div class="container mx-auto px-4">
+    <div
+      class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+    >
+      <div class="p-8">
+
+        <!-- Logo -->
+        <div class="flex justify-center mb-4">
+          <img
+            src="/assets/logo.webp"
+            alt="Emergent Labs"
+            class="h-24 opacity-80"
+          />
+        </div>
+
+        <!-- Step label -->
+        <p class="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2 text-center">
+          Step 1 of 3
+        </p>
+
+        <div class="text-center mb-8">
+          <h1 class="text-3xl font-bold text-gray-800 mt-4">
+            What's Your Favorite CES Space?
+          </h1>
+          <p class="text-gray-600 mt-2">
+            Select what excites you most about CES
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center gap-4">
+
+        <!-- AI -->
+        <button
+          class="option-btn w-full flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+        >
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+            <span class="font-semibold text-gray-800">
+              AI
+            </span>
+          </div>
+          <div class="shrink-0">
+            <span class="text-3xl">🤖</span>
+          </div>
+        </button>
+
+        <!-- Vehicle Tech -->
+        <button
+          class="option-btn w-full flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+        >
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+            <span class="font-semibold text-gray-800">
+              Vehicle Tech
+            </span>
+          </div>
+          <div class="shrink-0">
+            <span class="text-3xl">🏎️</span>
+          </div>
+        </button>
+
+        <!-- Robotics -->
+        <button
+          class="option-btn w-full flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+        >
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+            <span class="font-semibold text-gray-800">
+              Robotics
+            </span>
+          </div>
+          <div class="shrink-0">
+            <span class="text-3xl">🦾</span>
+          </div>
+        </button>
+
+        <!-- Gaming -->
+        <button
+          class="option-btn w-full flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+        >
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left">
+            <span class="font-semibold text-gray-800">
+              Gaming & XR
+            </span>
+          </div>
+          <div class="shrink-0">
+            <span class="text-3xl">🕹️</span>
+          </div>
+        </button>
+      </div>
+
+        <!-- We’ll handle "You selected:" on generate/postcard screens later -->
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Your main JS for this page -->
+  <script src="scripts/main.js"></script>
+
+  <script>
+  if (window.feather) window.feather.replace();
+  </script>
+
+  <footer class="mt-2 text-center text-white text-sm pb-6">
+    Created & Powered by 
+    <a 
+        href="https://www.discoveremergent.com/" 
+        target="_blank" 
+        class="font-semibold text-secondary underline">
+        Emergent Labs
+    </a>
+  </footer>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const splash = document.getElementById("splash");
+    const startBtn = document.getElementById("start-btn");
+    if (!splash || !startBtn) return;
+
+    startBtn.addEventListener("click", () => {
+      splash.classList.add("hidden");
+    });
+  });
+  </script>
+</body>
+</html>

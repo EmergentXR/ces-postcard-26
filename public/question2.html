@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <link rel="icon" href="/favicon-light.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon-dark.ico" media="(prefers-color-scheme: light)">
+  <title>Question 2 • Your Tech Future</title>
+
+  <!-- Your custom styles -->
+  <link rel="stylesheet" href="/styles/build.css" />
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Main content area -->
+  <main class="flex-1 flex items-center justify-center">
+    <div class="container mx-auto px-4">
+      <div
+        class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+      >
+        <div class="p-8">
+
+          <!-- Logo -->
+          <div class="flex justify-center mb-4">
+            <img
+              src="assets/logo.webp"
+              alt="Emergent Labs"
+              class="h-24 opacity-80"
+            />
+          </div>
+
+          <!-- Step label -->
+          <p class="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2 text-center">
+            Step 2 of 3
+          </p>
+
+          <!-- Question -->
+          <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800">
+              Pick Your Technological Future
+            </h1>
+            <p class="text-gray-600 mt-2">
+              How does the road ahead feel from where you’re standing?
+            </p>
+          </div>
+
+          <!-- Options -->
+          <div class="flex flex-col items-center gap-4">
+
+            <!-- Golden Age button -->
+            <button
+              class="q2-option-btn option-btn w-full flex items-center justify-between p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+              data-value="Era of Abundance"
+            >
+              <div class="flex flex-col items-start text-left">
+                <span class="font-semibold text-gray-800">Era of Abundance</span>
+                <span class="text-xs text-gray-500">Innovation makes life brighter.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-4xl">✨</span>
+              </div>
+            </button>
+
+            <!-- It's Going to Get Weird button -->
+            <button
+              class="q2-option-btn option-btn w-full flex items-center justify-between p-4 rounded-lg border border-gray-200 hover:border-primary transition-all duration-300"
+              data-value="It's Going to Get Weird"
+            >
+              <div class="flex flex-col items-start text-left">
+                <span class="font-semibold text-gray-800">It’s Going to Get Weird</span>
+                <span class="text-xs text-gray-500">Surprising, strange, but never boring.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-4xl">🌀</span>
+              </div>
+            </button>
+
+          </div>
+
+          <p class="mt-6 text-xs text-gray-500 text-center">
+            Your answers help shape the mood and style of your final CES postcard.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global footer -->
+  <footer class="mt-4 text-center text-white text-sm pb-6">
+    Created & Powered by
+    <a
+      href="https://www.discoveremergent.com/"
+      target="_blank"
+      class="font-semibold text-secondary underline"
+    >
+      Emergent Labs
+    </a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/question2.js"></script>
+</body>
+</html>

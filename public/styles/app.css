@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366f1;
+  --color-secondary: #e8e4d9;
+}
+
+/* Tell Tailwind where your class usage lives */
+@source "../**/*.html";
+@source "../scripts/**/*.{js,ts}";
+@source "./**/*.css";
+
+@import "./main.css";

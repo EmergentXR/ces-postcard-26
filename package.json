@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "replicate": "^1.4.0"
+  },
+  "name": "cespostcard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:css": "postcss public/styles/app.css -o public/styles/build.css --watch",
+    "build:css": "postcss public/styles/app.css -o public/styles/build.css",
+    "build": "npm run build:css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
